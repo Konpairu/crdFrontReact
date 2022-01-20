@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { deletePost } from '../../redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function PostListItem(props){
 
     const dispatch = useDispatch();
+    const { filterValue } = useSelector(state => state.posts)
 
     const handleDelete = (id) =>{
         if(window.confirm(`Are you sure about deleting Item with id: ${id} ? `))
-            dispatch(deletePost(id))
+            dispatch(deletePost(id, filterValue))
     }
 
     return (
