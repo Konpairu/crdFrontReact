@@ -51,7 +51,7 @@ export const createPost = (body,name="") => {
         axios.post(`${process.env.REACT_APP_API}/posts`, body)
         .then(res =>{ 
                 dispatch(postCreated(res.data))
-                dispatch(loadPosts(name))
+                //dispatch(loadPosts(name))
                 //dispatch(filterPosts(res.data,name))
         })
         .catch(err => console.log(err) )
